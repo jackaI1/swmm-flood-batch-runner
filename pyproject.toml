@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "swmm-flood-batch-runner"
+version = "0.1.0"
+description = "GIS-checked, DEM-derived dual drainage storm batches through EPA SWMM"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pyswmm==2.2.0",
+  "swmm-toolkit==0.16.2",
+  "geopandas>=1.0,<2",
+  "rasterio>=1.4,<2",
+  "numpy>=2,<3",
+  "pandas>=2.2,<4",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+swmm-batch = "swmm_batch.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/swmm_batch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
