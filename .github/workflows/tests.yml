@@ -1,0 +1,33 @@
+name: Test drainage model
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-26]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "0.12.19"
+          python-version: "3.11"
+      - run: uv sync --frozen --extra test
+      - run: uv run python scripts/repair_macos_swmm.py
+      - run: uv run pytest -q
+      - run: uv run swmm-batch demo --workdir outputs/ci-demo
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: drainage-outputs-${{ matrix.os }}
+          path: outputs/ci-demo
+          if-no-files-found: ignore
