@@ -1,3 +1,11 @@
+I merged this into my existing [borehole-log-gis project](https://github.com/jackaI1/borehole-log-gis/tree/main/projects/swmm-flood-batch-runner). The current code is in `projects/swmm-flood-batch-runner/` there. I kept the code here so older links still work.
+
+The move keeps the original layout, including `tests/conftest.py`, `tests/test_storms.py`, `tests/test_hydraulics.py`, `tests/test_runner.py`. I replaced the README with the report below and left out Git history, installed dependencies, caches and generated build output from the hub copy.
+
+The project checks are configured in the hub at `.github/workflows/swmm-flood-batch-runner-tests.yml`, with commands run from this project folder and changes filtered to its paths.
+
+---
+
 # swmm-flood-batch-runner
 
 I built a stormwater comparison tool to learn how the underlying idea works. This is a learning project.
@@ -56,5 +64,3 @@ There are 5 test source files in this copy. No test pass count is claimed here: 
 
 
 Project checks run from this directory through the path-filtered hub workflows: `swmm-flood-batch-runner-tests.yml`.
-
-I later merged this into my [borehole-log-gis](https://github.com/jackaI1/borehole-log-gis) project, and the current version and more detail are at [this project](https://github.com/jackaI1/borehole-log-gis/tree/main/projects/swmm-flood-batch-runner).
