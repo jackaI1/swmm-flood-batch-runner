@@ -8,7 +8,7 @@ The project checks are configured in the hub at `.github/workflows/swmm-flood-ba
 
 # swmm-flood-batch-runner
 
-I built a stormwater comparison tool to learn how the underlying idea works. This is a learning project.
+I built a stormwater comparison tool because I wanted to learn how sewer capacity and downhill street flow affect the same storm. I can also list modeled surface results near boreholes from my log checker so I can review the ground records alongside the drainage results.
 
 ## Try it
 
@@ -60,7 +60,7 @@ I extract peak depth and velocity from the engine's statistics. Duration and exc
 
 ## Tests and limits
 
-There are 5 test source files in this copy. No test pass count is claimed here: I have not re-run the project suite as part of this move. This is a source snapshot, and running it on a new machine may need environment-specific setup.
+The suite runs the real SWMM engine for all three storms, checks the GIS and terrain inputs, compares smaller time steps, and tests a nearby-borehole review table. [The ground and water guide](../../docs/water-models.md#sewer-and-surface-drainage) explains that command and its limits. Nearby results are for review, not a prediction of groundwater response.
 
 
 Project checks run from this directory through the path-filtered hub workflows: `swmm-flood-batch-runner-tests.yml`.
