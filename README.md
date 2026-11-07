@@ -1,6 +1,6 @@
 I merged this into my existing [borehole-log-gis project](https://github.com/jackaI1/borehole-log-gis/tree/main/projects/swmm-flood-batch-runner). The current code is in `projects/swmm-flood-batch-runner/` there. I kept the code here so older links still work.
 
-The move keeps the original layout, including `tests/conftest.py`, `tests/test_storms.py`, `tests/test_hydraulics.py`, `tests/test_runner.py`. I replaced the README with the report below and left out Git history, installed dependencies, caches and generated build output from the hub copy.
+The move keeps the original layout, including `tests/conftest.py`, `tests/test_storms.py`, `tests/test_hydraulics.py`, `tests/test_runner.py`. I replaced the README with the report below and left out Git history, installed dependencies, caches and generated build output from the hub copy. The hub copy later gained a borehole import helper in `src/swmm_batch/boreholes.py`, with corresponding CLI and test changes in hub PR 3.
 
 The project checks are configured in the hub at `.github/workflows/swmm-flood-batch-runner-tests.yml`, with commands run from this project folder and changes filtered to its paths.
 
@@ -9,6 +9,8 @@ The project checks are configured in the hub at `.github/workflows/swmm-flood-ba
 # swmm-flood-batch-runner
 
 I built a stormwater comparison tool because I wanted to learn how sewer capacity and downhill street flow affect the same storm. I can also list modeled surface results near boreholes from my log checker so I can review the ground records alongside the drainage results.
+
+I use synthetic inputs so the example can be reproduced without downloading municipal data.
 
 ## Try it
 
